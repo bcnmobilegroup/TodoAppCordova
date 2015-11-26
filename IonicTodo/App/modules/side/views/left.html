@@ -1,0 +1,32 @@
+﻿<ion-view view-title="Settings">
+    <ion-header-bar class="bar-calm">
+        <h1 class="title">Settings</h1>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <form ng-submit="vm.saveConfiguration()">
+            <ion-list>
+                <label class="item item-input">
+                    <input type="text"
+                           name="serviceUrl"
+                           ng-model="vm.configuration.azureUrl"
+                           placeholder="Azure Service Url">
+                </label>
+
+                <label class="item item-input">
+                    <input type="text"
+                           name="serviceKey"
+                           ng-model="vm.configuration.azureKey"
+                           placeholder="Azure Service Key">
+                </label>
+            </ion-list>
+
+            <button type="submit"
+                    class="button button-block button-positive">
+                Save
+            </button>
+        </form>
+
+    </ion-content>
+</ion-view>

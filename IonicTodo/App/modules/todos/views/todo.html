@@ -1,0 +1,31 @@
+﻿<ion-view view-title="Todos">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-calm icon icon-only ion-upload"
+                ng-if="!vm.todo.stored && vm.showActions"
+                ng-click="vm.upload()"></button>
+
+        <button class="button button-clear button-calm icon icon-only ion-checkmark-circled"
+                ng-if="vm.showActions"
+                ng-click="vm.remove()"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding">
+
+        <form ng-submit="vm.save()">
+            <ion-list>
+                <label class="item item-input">
+                    <input type="text"
+                           name="text"
+                           class="todo"
+                           ng-model="vm.todo.text">
+                </label>
+            </ion-list>
+
+            <button type="submit"
+                    class="button button-block button-positive">
+                Save
+            </button>
+        </form>
+
+    </ion-content>
+</ion-view>

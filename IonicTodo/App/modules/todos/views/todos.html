@@ -1,0 +1,30 @@
+﻿<ion-view view-title="Todos">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-calm icon icon-only ion-plus-circled" 
+                ng-click="vm.addTodo()"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list show-delete="false"
+                  show-reorder="false"
+                  can-swipe="true"
+                  on-swipe-left="nav.disableSwipe($event)"
+                  on-swipe-right="nav.disableSwipe($event)">
+
+            <ion-item class="item-icon-right" ng-repeat="todo in vm.todos track by $index | orderBy: 'date'">
+                {{todo.text}}
+                <i ng-if="todo.stored" class="icon ion-android-cloud-done"></i>
+
+                <ion-option-button class="button-info"
+                                   ng-click="vm.editTodo(vm.todos[$index])">
+                    Edit
+                </ion-option-button>
+                <ion-option-button class="button-assertive"
+                                   ng-click="vm.removeTodo(vm.todos[$index])">
+                    Done
+                </ion-option-button>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>
